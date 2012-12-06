@@ -109,7 +109,8 @@ f.close()
 		
 plt.figure()
 plt.imshow(imggray, cmap = plt.cm.gray)
-plt.show()
+#plt.show()
+plt.savefig('output_figs/' + filename.replace('/','_').replace('.','_') + '_gray.jpg')
 
 #plt.figure()
 #plt.imshow(imgnewsz, cmap = plt.cm.gray)
@@ -119,14 +120,16 @@ plt.figure()
 plt.ylabel('Radius')
 plt.xlabel('Angle')
 plt.imshow(var_g, cmap = plt.cm.gray)
-plt.show()
+#plt.show()
+plt.savefig('output_figs/' + filename.replace('/','_').replace('.','_') + '_polar.jpg')
 
 #
 plt.figure()
 plt.ylabel('Radius')
 plt.xlabel('Angle')
 plt.imshow(var_G_plot, cmap = plt.cm.gray)
-plt.show()
+#plt.show()
+plt.savefig('output_figs/' + filename.replace('/','_').replace('.','_') + '_G.jpg')
 #
 #plt.figure()
 #plt.ylabel('Radius')
