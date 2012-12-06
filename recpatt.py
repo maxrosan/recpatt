@@ -91,7 +91,7 @@ for t in range(0, 180):
 
 var_G_plot = ((var_G_plot/val_max)*255)
 
-f = open('db/' + filename.replace('/','_') + '_aprox.txt', 'w+')
+f = open('db/aprox/' + filename.replace('/','_') + '.txt', 'w+')
 f.write(str(size/2) + ' ' + str(180) + '\n')
 for r in range(0, size/2): 
 	for t in range(0, 180):
@@ -99,7 +99,7 @@ for r in range(0, size/2):
 	f.write('\n')
 f.close()
 
-f = open('db/' + filename.replace('/','_') + '_detail.txt', 'w+')
+f = open('db/detail/' + filename.replace('/','_') + '.txt', 'w+')
 f.write(str(size/2) + ' ' + str(180) + '\n')
 for r in range(0, size/2): 
 	for t in range(0, 180):
