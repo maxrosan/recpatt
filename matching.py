@@ -55,24 +55,50 @@ f.write('<html><body><table>')
 f.write('<tr>')
 f.write('<td> - </td>')
 for x in files:
-	f.write('<td>' + x + '</td>')
+	f.write('<td><img src="pics/' + x + '" width=30 height=30/></td>')
 f.write('</tr>')
 
 for x in files:
 	f.write('<tr>')
-	f.write('<td>' + x  + '</td>')
-
+	f.write('<td><img src="pics/' + x + '" width=30 height=30/></td>')
 	for y in files:
 		if x != y:
 
 			img1 = read_coef('db/aprox/pics_' + x + '.txt', n_coef_wl, n_coef_F)
 			img2 = read_coef('db/aprox/pics_' + y + '.txt', n_coef_wl, n_coef_F)
 
-			f.write('<td>' + str(cross_corr(n_coef_wl, n_coef_F, img1, img2)) + '</td>')
+			f.write('<td>' + str(cross_corr(n_coef_wl, n_coef_F, img1, img2))[:4] + '</td>')
 
 		else:
 			
-			f.write('<td> - </td>')
+			f.write('<td align=center> - </td>')
+
+	f.write('</tr>')
+
+
+f.write('</table><br/><br/>')
+
+f.write('<table>')
+f.write('<tr>')
+f.write('<td> - </td>')
+for x in files:
+	f.write('<td><img src="pics/' + x + '" width=30 height=30/></td>')
+f.write('</tr>')
+
+for x in files:
+	f.write('<tr>')
+	f.write('<td><img src="pics/' + x + '" width=30 height=30/></td>')
+	for y in files:
+		if x != y:
+
+			img1 = read_coef('db/detail/pics_' + x + '.txt', n_coef_wl, n_coef_F)
+			img2 = read_coef('db/detail/pics_' + y + '.txt', n_coef_wl, n_coef_F)
+
+			f.write('<td>' + str(cross_corr(n_coef_wl, n_coef_F, img1, img2))[:4] + '</td>')
+
+		else:
+			
+			f.write('<td align=center> - </td>')
 
 	f.write('</tr>')
 
