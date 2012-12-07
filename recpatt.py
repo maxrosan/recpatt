@@ -10,6 +10,18 @@ import pywt
 import sys
 import os
 
+def calc_cm(img, N):
+	xcm = 0
+	ycm = 0
+	p = 0
+	for x in range(0,N):
+		for y in range(0, N):
+			if img[x][y] < 0xFF:
+				xcm = xcm + x
+				ycm = ycm + y
+				p = p + 1
+	return (xcm/p,ycm/p)
+
 filename = sys.argv[1]
 
 if (len(filename) == 0): 
@@ -29,7 +41,8 @@ szimg = imggray.shape
 N = max(szimg)
 imgnewsz = misc.imresize(imggray, (N,N))
 
-cm_img = ndimage.measurements.center_of_mass(imgnewsz)
+#cm_img = ndimage.measurements.center_of_mass(imgnewsz)
+cm_img = calc_cm(imgnewsz, N)
 print cm_img
 
 euc = spatial.distance.euclidean
